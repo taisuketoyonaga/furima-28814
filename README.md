@@ -65,7 +65,6 @@
 | address           | string    | null: false                   |
 | building          | string    | null: true                    |
 | phone_number      | integer   | null: false                   |
-| buyer             |references | null: false, foreign_key: true|
 | item              |references | null: false, foreign_key: true|
 
 
