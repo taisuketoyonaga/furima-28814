@@ -43,15 +43,17 @@
 
 ## buys(購入管理) テーブル
 
-| Column   | Type          | Options                        |
-| -------- | --------------| ------------------------------ |
-| user     | references    |  null: false, foreign_key: true|
-| item     | references    |  null: false, foreign_key: true|
+| Column      | Type          | Options                        |
+| ----------- | --------------| ------------------------------ |
+| user        | references    |  null: false, foreign_key: true|
+| item        | references    |  null: false, foreign_key: true|
+| address     | references    |  null: false, foreign_key: true|
 
 ### Association
 
  - belongs_to :user
  - belongs_to :item
+ - has_one :address
 
 
 
@@ -64,8 +66,9 @@
 | city              | string    | null: false                   |
 | address           | string    | null: false                   |
 | building          | string    | null: true                    |
-| phone_number      | integer   | null: false                   |
+| phone_number      | string    | null: false                   |
 | item              |references | null: false, foreign_key: true|
+| address           |references | null: false, foreign_key: true|
 
 
 ### Association
