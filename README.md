@@ -15,8 +15,8 @@
 
 
 ### Association
- has_many :items
- has_many :buyers
+- has_many :items
+- has_many :buyers
 
 
 ## items(商品) テーブル
@@ -37,8 +37,8 @@
 
 
 ### Association
- belongs_to :user
- has_one :item
+- belongs_to :user
+- has_one :item
 
 
 ## buyer(購入者) テーブル
