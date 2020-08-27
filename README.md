@@ -18,8 +18,7 @@
 
 ### Association
 - has_many :items
-- has_many :addresses
-
+- has_many :buys
 
 ## items(商品) テーブル
 
@@ -38,26 +37,40 @@
 
 
 ### Association
-- belongs_to :user
-- has_one :item
+- belongs_to :user　
+- has_one :address
+- has_one :buy
+
+## buys(購入管理) テーブル
+
+| Column   | Type          | Options                        |
+| -------- | --------------| ------------------------------ |
+| user     | references    |  null: false, foreign_key: true|
+| item     | references    |  null: false, foreign_key: true|
+
+### Association
+
+ - belongs_to :user
+ - belongs_to :item
+
 
 
 ## addresses(住所) テーブル
-) テーブル
 
-| Column           | Type      | Options                       |
-| ---------------- | ----------| ----------------------------- |
-| postal_code      | integer   | null: false                   |
-| city             | string    | null: false                   |
-| address          | string    | null: false                   |
-| building         | string    | null: true                    |
-| phone_number     | integer   | null: false                   |
-| user             |references | null: false, foreign_key: true|
-| item             |references | null: false, foreign_key: true|
+
+| Column            | Type      | Options                       |
+| ----------------- | ----------| ----------------------------- |
+| postal_code       | integer   | null: false                   |
+| city              | string    | null: false                   |
+| address           | string    | null: false                   |
+| building          | string    | null: true                    |
+| phone_number      | integer   | null: false                   |
+| buyer             |references | null: false, foreign_key: true|
+| item              |references | null: false, foreign_key: true|
 
 
 ### Association
 
-- belongs_to :user
 - belongs_to :item
+
 
