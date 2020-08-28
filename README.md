@@ -61,9 +61,10 @@
 | Column            | Type      | Options                       |
 | ----------------- | ----------| ----------------------------- |
 | postal_code       | integer   | null: false                   |
-| prefectures       | integer   | null: false
+| prefectures       | integer   | null: false                   |
 | city              | string    | null: false                   |
 | address           | string    | null: false                   |
+| building          | string    |                               |
 | phone_number      | string    | null: false                   |
 | buy               |references | null: false, foreign_key: true|
 
