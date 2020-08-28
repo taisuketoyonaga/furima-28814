@@ -13,8 +13,9 @@
 | email                            | string | null: false |
 | password                         | string | null: false |
 | password_confirmation            | string | null: false |
-| birthday                         | date   | null: false |
-
+| birth_year_id                    | integer| null: false |
+| birth_month_id                   | integer| null: false |
+| birth_day_id                     | integer| null: false |
 
 ### Association
 - has_many :items
@@ -47,7 +48,7 @@
 | ----------- | --------------| ------------------------------ |
 | user        | references    |  null: false, foreign_key: true|
 | item        | references    |  null: false, foreign_key: true|
-| address     | references    |  null: false, foreign_key: true|
+
 
 ### Association
 
@@ -68,11 +69,11 @@
 | building          | string    | null: true                    |
 | phone_number      | string    | null: false                   |
 | item              |references | null: false, foreign_key: true|
-| address           |references | null: false, foreign_key: true|
+| buy               |references | null: false, foreign_key: true|
 
 
 ### Association
 
-- belongs_to :item
+- belongs_to :buy
 
 
