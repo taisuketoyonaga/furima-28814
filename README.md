@@ -13,9 +13,7 @@
 | email                            | string | null: false |
 | password                         | string | null: false |
 | password_confirmation            | string | null: false |
-| birth_year_id                    | integer| null: false |
-| birth_month_id                   | integer| null: false |
-| birth_day_id                     | integer| null: false |
+| birthday                         | date   | null: false |
 
 ### Association
 - has_many :items
@@ -39,7 +37,6 @@
 
 ### Association
 - belongs_to :user　
-- has_one :address
 - has_one :buy
 
 ## buys(購入管理) テーブル
@@ -64,9 +61,9 @@
 | Column            | Type      | Options                       |
 | ----------------- | ----------| ----------------------------- |
 | postal_code       | integer   | null: false                   |
+| prefectures       | integer   | null: false
 | city              | string    | null: false                   |
 | address           | string    | null: false                   |
-| building          | string    | null: true                    |
 | phone_number      | string    | null: false                   |
 | buy               |references | null: false, foreign_key: true|
 
