@@ -5,5 +5,6 @@ class Item < ApplicationRecord
 
 #バリデーションの記入
  validates :image, presence: true
+ validates :name, presence: true
 
 end
