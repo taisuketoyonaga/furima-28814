@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :item_params, only: :create
   def index
+    @item = Item.all
+    @buy = Buy.all
   end
 
   def new
@@ -15,7 +17,7 @@ class ItemsController < ApplicationController
      else
       render :new
      end
-     
+
   end
 
   private
