@@ -3,9 +3,9 @@ class Item < ApplicationRecord
   has_one :buy
   has_one_attached :image
 
- #バリデーションの記入
   validates :image, presence: true
   validates :name,  presence: true
+  validates :explain,  presence: true
 
   validates :category_id, 
            :status_id,
