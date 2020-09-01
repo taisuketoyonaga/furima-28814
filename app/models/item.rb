@@ -4,8 +4,8 @@ class Item < ApplicationRecord
   has_one_attached :image
 
  #バリデーションの記入
-  validates :image,
-           :name,  presence: true
+  validates :image, presence: true
+  validates :name,  presence: true
 
   validates :category_id, 
            :status_id,
