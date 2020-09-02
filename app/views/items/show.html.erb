@@ -18,7 +18,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= @item.price%>
+        <%= "#{@item.price}円" %>
       </span>
       <% if @item.delivery_fee_id == 3 %>
         <span class="item-postage">
