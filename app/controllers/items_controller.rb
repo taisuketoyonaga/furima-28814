@@ -22,7 +22,19 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @buy = Buy.all
-end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to item_path(item.id)
+    end
+  end
+
 
   private
 
