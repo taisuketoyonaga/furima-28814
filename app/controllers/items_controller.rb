@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :item_params, only: :create
+  before_action :set_params, only: [:show, :edit, :update]
   def index
     @item = Item.all
     @buy = Buy.all
@@ -20,16 +21,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @buy = Buy.all
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -38,6 +36,10 @@ class ItemsController < ApplicationController
   end
 
   private
+    
+  def set_params
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:image, :name, :explain, :category_id, :delivery_fee_id, :status_id, :shopping_origin_id, :delivery_date_id, :price).merge(user_id: current_user.id)
