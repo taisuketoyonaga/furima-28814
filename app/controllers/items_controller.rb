@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :item_params, only: :create
-  before_action :set_params, only: [:show, :edit, :update]
+  before_action :set_params, only: [:show, :edit, :update, :destroy] 
   def index
     @item = Item.all
     @buy = Buy.all
@@ -33,6 +33,11 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
   private
