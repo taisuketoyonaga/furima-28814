@@ -28,7 +28,7 @@
     </div>
 
     <% if current_user == @item.user %>
-      <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
+      <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
       <p class='or-text'>or</p>
       <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
 
@@ -36,7 +36,7 @@
 
       <% @buy.each do |buy| %>
         <% unless buy.item_id == @item.id %>
-          <%= link_to '購入画面に進む', buys_path ,class:"item-red-btn"%>
+          <%= link_to '購入画面に進む',item_buys_path(@item.id),class:"item-red-btn"%>
         <% end %>
       <% end %>
 
