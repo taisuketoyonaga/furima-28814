@@ -1,4 +1,5 @@
 class BuysController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_params, only: [:index, :create]
   before_action :sold_move_to_index, only: [:index, :show, :create]
   before_action :exhibitor_move_to_index, only: [:index, :show, :create]
@@ -42,6 +43,8 @@ class BuysController < ApplicationController
   end
 
   def exhibitor_move_to_index
-    redirect_to root_path if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
+      redirect_to root_path 
+    end
   end
 end
