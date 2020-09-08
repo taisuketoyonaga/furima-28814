@@ -1,16 +1,18 @@
 class BuysController < ApplicationController
-#  attr_accessor :token
  before_action :set_params, only: [:index, :create]
+ before_action :sold_move_to_index, only: [:index, :show, :create]
+ before_action :exhibitor_move_to_index, only: [:index, :show, :create]
   def index
    @buy = BuyAddress.new
   end
 
   def create
     @buy = BuyAddress.new(buys_params)
+    binding.pry
     if @buy.valid?
        pay_item
        @buy.save
-       return redirect_to root_path
+       redirect_to root_path
     else
       render 'index'
     end
@@ -23,7 +25,7 @@ class BuysController < ApplicationController
   end
 
   def buys_params
-    params.permit(:item_id, :token).merge(user_id: current_user.id)
+    params.permit(:item_id, :token, :postal_code,:prefectures, :city, :address, :phone_number, :buiding).merge(user_id: current_user.id)
   end
 
 
@@ -34,6 +36,19 @@ class BuysController < ApplicationController
       card: buys_params[:token],
       currency:'jpy',
     )
+  end
+
+  def sold_move_to_index
+    buy = Buy.where(item_id:@item.id )
+    unless buy == [] 
+      redirect_to root_path
+    end
+  end
+
+  def exhibitor_move_to_index
+    if @item.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
 end

@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @buy = Buy.all
   end
 
   def edit
