@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :item_params, only: :create
-  before_action :set_params, only: [:show, :edit, :update, :destroy] 
+  before_action :set_params, only: [:show, :edit, :update, :destroy]
   def index
     @item = Item.all
     @buy = Buy.all
@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @buy = Buy.all
   end
 
   def edit
@@ -44,7 +43,7 @@ class ItemsController < ApplicationController
   end
 
   private
-    
+
   def set_params
     @item = Item.find(params[:id])
   end
