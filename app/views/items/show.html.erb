@@ -8,13 +8,12 @@
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
       
-      <% Buy.all.each do |buy| %>
-        <% if buy.item_id == @item.id %>
+        <% unless @item.buy == ""%>
           <div class='sold-out'>
            <span>Sold Out!!</span>
           </div>
         <% end %>
-      <% end %>
+
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -35,7 +34,7 @@
     <% else %>
 
       
-        <% if Buy.all.where(item_id:@item.id) == [] %>
+        <% if @item.buy == "" %>
           <%= link_to '購入画面に進む',item_buys_path(@item.id),class:"item-red-btn"%>
         <% end %>
     
