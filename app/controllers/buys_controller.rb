@@ -8,7 +8,6 @@ class BuysController < ApplicationController
 
   def create
     @buy = BuyAddress.new(buys_params)
-    binding.pry
     if @buy.valid?
        pay_item
        @buy.save
